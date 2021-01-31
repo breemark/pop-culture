@@ -3,6 +3,6 @@ from .models import Page
 
 # Register your models here.
 class PageAdmin(admin.ModelAdmin):
-    list_display = ('title', 'language',)
+    list_display = ('title', 'language', 'active',)
 
 admin.site.register(Page, PageAdmin)

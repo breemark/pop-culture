@@ -9,5 +9,7 @@ class Page(models.Model):
         ('ZH', 'Chinese'),
     )
     language = models.CharField(max_length=2, choices=LANGUAGES)
+    active = models.BooleanField(default=True)
+
     def __str__(self):
         return self.title
