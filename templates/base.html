@@ -21,7 +21,7 @@
         <ul class="navbar-nav mr-auto">
           {% for page in pages %}
           <li class="nav-item">
-            <a class="nav-link" href="#">{{ page.title }}</a>
+            <a class="nav-link" href="{{ page.slug }}">{{ page.title }}</a>
           </li>
           {% endfor %}
         </ul>

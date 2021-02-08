@@ -1,9 +1,14 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from autoslug import AutoSlugField
+from unidecode import unidecode
+
 
 # Create your PAGE models here.
 class Page(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
+    title = models.CharField(max_length=255, unique=True)
+    slug = AutoSlugField(populate_from='title_format')
+    content = RichTextField(blank=True, null=True)
     LANGUAGES = (
         ('EN', 'English'),
         ('ZH', 'Chinese'),
@@ -13,3 +18,6 @@ class Page(models.Model):
 
     def __str__(self):
         return self.title
+
+    def title_format(self):
+        return unidecode(self.title)
