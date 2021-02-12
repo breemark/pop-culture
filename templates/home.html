@@ -2,6 +2,12 @@
 
 {% block content %}
 
-<h1>HOME!</h1>
+{{ main_page.content|safe }}
+
+{% for post in posts %}
+
+{{ post.title }}
+
+{% endfor %}
 
 {% endblock %}
