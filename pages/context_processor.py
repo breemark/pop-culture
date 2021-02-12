@@ -7,10 +7,12 @@ def pages_processor(request):
 
     if language == 'en':
         language_opposite = 'zh'
+        language_name = '中文 🇨🇳'
+
     else:
         language_opposite = 'en'
-
+        language_name = 'English 🇬🇧'
 
     pages = Page.objects.all().filter(language=language, active=True,).exclude(slug='main').exclude(slug='main-chinese')
 
-    return {"pages": pages, 'language':language, 'language_opposite': language_opposite}
+    return {"pages": pages, 'language':language, 'language_opposite': language_opposite, 'language_name': language_name}
