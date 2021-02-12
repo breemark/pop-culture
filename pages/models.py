@@ -10,8 +10,8 @@ class Page(models.Model):
     slug = AutoSlugField(populate_from='title_format')
     content = RichTextField(blank=True, null=True)
     LANGUAGES = (
-        ('EN', 'English'),
-        ('ZH', 'Chinese'),
+        ('en', 'English'),
+        ('zh', 'Chinese'),
     )
     language = models.CharField(max_length=2, choices=LANGUAGES)
     active = models.BooleanField(default=True)
