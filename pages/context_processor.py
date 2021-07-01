@@ -13,6 +13,7 @@ def pages_processor(request):
         language_opposite = 'en'
         language_name = 'English 🇬🇧'
 
+    # The 'main' page and the 'main-chinese' page should not be deleted, because they are the front pages of the website. 
     pages = Page.objects.all().filter(language=language, active=True,).exclude(slug='main').exclude(slug='main-chinese')
 
     return {"pages": pages, 'language':language, 'language_opposite': language_opposite, 'language_name': language_name}
